@@ -1,0 +1,14 @@
+<app-elipsis *ngIf="isElipsis"></app-elipsis>
+<nav>
+  <div class="col-10 header">
+    <h1>
+      <i class="fa-solid fa-angle-left" (click)="onGoBack()"></i>
+      Pacientes
+    </h1>
+  </div>
+  <div class="col-2 header text-end">
+    <h1>
+      <i class="fa-solid fa-ellipsis-vertical" (click)="onChangeElipsis()"></i>
+    </h1>
+  </div>
+</nav>

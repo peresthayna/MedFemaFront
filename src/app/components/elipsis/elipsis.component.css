@@ -1,0 +1,25 @@
+.container {
+  position: absolute;
+  width: 35vw;
+  left: 57%;
+  border: 1px solid #0B3B60;
+  padding: 0;
+  top: 1%;
+}
+
+.container:hover {
+  cursor: pointer;
+}
+
+.container .card {
+  width: 35vw;
+  height: 4vh;
+  align-items: center;
+  border-radius: 0;
+  border: #0B3B60 1px solid;
+}
+
+.container .card .card-body {
+  padding: 2px;
+  font-size: 14px;
+}

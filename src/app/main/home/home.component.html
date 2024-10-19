@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div *ngIf="isLoading">
+    <app-loading></app-loading>
+  </div>
+  <div *ngIf="!isLoading">
+    <div class="container">
+      <div class="header">
+        <img src="assets/logo.png" />
+        <h1>Gerenciando sua clínica</h1>
+      </div>
+      <div class="body">
+        <p>Escolha qual seção deseja iniciar:</p>
+        <div class="card" (click)="navigate('medicos')">
+          <div class="card-body mt-3">
+            <i class="fa-solid fa-user-doctor"></i>
+            <h4 class="pt-1">Médicos(as)</h4>
+          </div>
+        </div>
+        <div class="card" (click)="navigate('pacientes')">
+          <div class="card-body mt-3">
+            <h1><i class="fa-solid fa-head-side-mask"></i></h1>
+            <h4 class="pt-1">Pacientes</h4>
+          </div>
+        </div>
+        <div class="card" (click)="navigate('consultas')">
+          <div class="card-body mt-3">
+            <i class="fa-solid fa-hospital-user"></i>
+            <h4 class="pt-1">Consultas</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

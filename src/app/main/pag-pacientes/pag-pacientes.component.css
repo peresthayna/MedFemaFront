@@ -1,0 +1,21 @@
+nav {
+  background-color: #0B3B60;
+  height: 8vh;
+}
+
+nav i {
+  padding: 1.5vh 3vw 0 3vw;
+  font-size: 2rem;
+}
+
+nav i:hover {
+  cursor: pointer;
+}
+
+nav h1 {
+  color: #FFFFFF;
+}
+
+nav .header {
+  display: inline-block;
+}
