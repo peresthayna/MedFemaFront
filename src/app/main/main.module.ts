@@ -7,7 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PagMedicosComponent } from './pag-medicos/pag-medicos.component';
 import { PagPacientesComponent } from './pag-pacientes/pag-pacientes.component';
 import { PagConsultasComponent } from './pag-consultas/pag-consultas.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -19,7 +19,8 @@ import { PagConsultasComponent } from './pag-consultas/pag-consultas.component';
     CommonModule,
     ComponentsModule,
     CardModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ]
 })
 export class MainModule { }

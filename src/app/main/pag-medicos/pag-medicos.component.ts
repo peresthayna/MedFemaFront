@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { debounceTime, Subject, switchMap } from 'rxjs';
+import { MedicoConsulta } from '../../components/shared/model/MedicoConsulta';
+import { MedicoService } from '../../components/shared/service/medico.service';
+import { SetMapService } from '../../components/shared/service/set-map.service';
 
 @Component({
   selector: 'app-pag-medicos',
@@ -8,11 +12,18 @@ import { Component, OnInit } from '@angular/core';
 export class PagMedicosComponent implements OnInit {
 
   public isElipsis: boolean = false;
+  public busca: string = '';
+  public searchSubject = new Subject<string>();
+  public medicos: { [key: string] : MedicoConsulta[] } = {};
 
-  constructor() {}
+  constructor(
+    private medicoService: MedicoService,
+    private setMapService: SetMapService
+  ) {}
 
   ngOnInit(): void {
-
+    this.getMedicos();
+    this.setupSearch();
   }
 
   public onChangeElipsis(): void {
@@ -21,5 +32,31 @@ export class PagMedicosComponent implements OnInit {
 
   public onGoBack(): void {
     history.back()
+  }
+
+  public getMedicos(): void {
+    this.medicoService.getMedicos().subscribe((medicos) => {
+      this.medicos = this.setMapService.setMap(medicos);
+    });
+  }
+
+  public onSearchChange(): void {
+    if (this.busca == '') {
+      this.getMedicos();
+    } else {
+        this.searchSubject.next(this.busca);
+    }
+  }
+
+  public setupSearch(): void {
+    this.searchSubject
+      .pipe(
+        debounceTime(500),
+        switchMap((busca) => this.medicoService.getMedicosBySearch(busca))
+      )
+      .subscribe((medicos) => {
+        this.medicos = this.setMapService.setMap(medicos);
+        console.log(this.medicos)
+      });
   }
 }

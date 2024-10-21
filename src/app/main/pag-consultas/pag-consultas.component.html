@@ -1,5 +1,5 @@
 <app-elipsis *ngIf="isElipsis"></app-elipsis>
-<nav>
+<nav class="row">
   <div class="col-10 header">
     <h1>
       <i class="fa-solid fa-angle-left" (click)="onGoBack()"></i>
@@ -12,3 +12,20 @@
     </h1>
   </div>
 </nav>
+<div class="container">
+  <div class="search">
+    <input type="search" placeholder="Pesquisar" [(ngModel)]="busca" (ngModelChange)="onSearchChange()">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+  <div *ngFor="let lista of consultas | keyvalue">
+    <app-separador>
+      <div class="date">
+        {{ lista['key'] | date: 'dd/MM/yyyy'}}
+        <img src="assets/v.png">
+      </div>
+      <div *ngFor="let consulta of lista['value']">
+        <app-details [consulta]="consulta"></app-details>
+      </div>
+    </app-separador>
+  </div>
+</div>

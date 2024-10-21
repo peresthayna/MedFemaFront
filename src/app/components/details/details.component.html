@@ -1,0 +1,58 @@
+<section class="consulta" *ngIf="consulta">
+  <ul>
+    <li class="title row">
+      <div class="col-10">
+        <strong>{{ consulta.dataHora | date: 'HH:mm'}}</strong>
+      </div>
+      <div class="col-2">
+        <i class="fa-solid fa-sort-down" (click)="onChangeExtend()"></i>
+      </div>
+    </li>
+    <li class="name">
+      {{ consulta.medico.nome }}
+    </li>
+    <li class="sub">
+      {{ consulta.medico.especialidadeFormatada + ' | CRM ' + consulta.medico.crm }}
+    </li>
+    <li class="name">
+      {{ consulta.paciente.nome }}
+    </li>
+    <li class="sub">
+      Paciente
+    </li>
+    <li *ngIf="isExtend">
+      <button type="button" class="btn btn-outline-primary mr-3">Editar</button>
+      <button type="button" class="btn btn-outline-primary">Cancelar consulta</button>
+    </li>
+  </ul>
+</section>
+<section class="medico" *ngIf="medico">
+  <ul>
+    <li class="title row">
+      <div class="col-10">
+        <strong>{{ medico.nome }}</strong>
+      </div>
+      <div class="col-2">
+        <i class="fa-solid fa-sort-down" (click)="onChangeExtend()"></i>
+      </div>
+    </li>
+    <li class="sub">
+      {{ medico.especialidadeFormatada + ' | CRM ' + medico.crm }}
+    </li>
+    <li *ngIf="isExtend">
+    <div class="sub">
+      {{ medico.email}}
+    </div>
+    <div class="sub">
+      {{ medico.telefone }}
+    </div>
+    <div class="sub">
+      {{ medico.endereco.logradouro + ', ' +
+      medico.endereco.numero + ' - ' + medico.endereco.cidade + '/' +
+      medico.endereco.uf + ' CEP: ' + medico.endereco.cep }}
+    </div>
+      <button type="button" class="btn btn-outline-primary mr-3">Editar</button>
+      <button type="button" class="btn btn-outline-primary">Desativar perfil</button>
+    </li>
+  </ul>
+</section>
