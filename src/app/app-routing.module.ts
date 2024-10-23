@@ -4,12 +4,14 @@ import { HomeComponent } from './main/home/home.component';
 import { PagMedicosComponent } from './main/pag-medicos/pag-medicos.component';
 import { PagPacientesComponent } from './main/pag-pacientes/pag-pacientes.component';
 import { PagConsultasComponent } from './main/pag-consultas/pag-consultas.component';
+import { CadMedicosComponent } from './main/cad-medicos/cad-medicos.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'medicos', component: PagMedicosComponent },
   { path: 'pacientes', component: PagPacientesComponent },
   { path: 'consultas', component: PagConsultasComponent },
+  { path: 'add-medicos/:id', component: CadMedicosComponent },
 ];
 
 @NgModule({

@@ -1,3 +1,8 @@
+.container-fluid {
+  overflow: hidden;
+  padding: 0;
+}
+
 nav {
   background-color: #0B3B60;
   height: 8vh;
@@ -57,9 +62,31 @@ input {
 .letter {
   color: #339CFF;
   display: inline-block;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .letter img {
   width: 40px;
   height: 20px;
+}
+
+.cadastro {
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  padding: 0 10px 10px 10px;
+  align-items: center;
+  height: 50px;
+  background-color: #FFFFFF;
+}
+
+.cadastro button {
+  width: 100%;
+  background-color: #0B3B60;
+}
+
+.container {
+  height: calc(100% - 50px);
+  overflow-y: auto;
 }

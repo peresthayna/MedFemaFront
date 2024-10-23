@@ -3,6 +3,7 @@ import { debounceTime, Subject, switchMap } from 'rxjs';
 import { MedicoConsulta } from '../../components/shared/model/MedicoConsulta';
 import { MedicoService } from '../../components/shared/service/medico.service';
 import { SetMapService } from '../../components/shared/service/set-map.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pag-medicos',
@@ -18,7 +19,8 @@ export class PagMedicosComponent implements OnInit {
 
   constructor(
     private medicoService: MedicoService,
-    private setMapService: SetMapService
+    private setMapService: SetMapService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -56,7 +58,10 @@ export class PagMedicosComponent implements OnInit {
       )
       .subscribe((medicos) => {
         this.medicos = this.setMapService.setMap(medicos);
-        console.log(this.medicos)
       });
+  }
+
+  public navigate(path: string): void {
+    this.router.navigate([path]);
   }
 }

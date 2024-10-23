@@ -12,7 +12,7 @@
       {{ consulta.medico.nome }}
     </li>
     <li class="sub">
-      {{ consulta.medico.especialidadeFormatada + ' | CRM ' + consulta.medico.crm }}
+      {{ consulta.medico.especialidade + ' | CRM ' + consulta.medico.crm }}
     </li>
     <li class="name">
       {{ consulta.paciente.nome }}
@@ -37,7 +37,7 @@
       </div>
     </li>
     <li class="sub">
-      {{ medico.especialidadeFormatada + ' | CRM ' + medico.crm }}
+      {{ medico.especialidade + ' | CRM ' + medico.crm }}
     </li>
     <li *ngIf="isExtend">
     <div class="sub">
@@ -47,9 +47,41 @@
       {{ medico.telefone }}
     </div>
     <div class="sub">
-      {{ medico.endereco.logradouro + ', ' +
-      medico.endereco.numero + ' - ' + medico.endereco.cidade + '/' +
-      medico.endereco.uf + ' CEP: ' + medico.endereco.cep }}
+      {{ medico.endereco.logradouro +
+        (medico.endereco.numero ? ', ' + medico.endereco.numero : '') + ' - ' +
+        medico.endereco.cidade + '/' +
+        medico.endereco.uf + ' CEP: ' + medico.endereco.cep }}
+    </div>
+      <button type="button" class="btn btn-outline-primary mr-3">Editar</button>
+      <button type="button" class="btn btn-outline-primary">Desativar perfil</button>
+    </li>
+  </ul>
+</section>
+<section class="paciente" *ngIf="paciente">
+  <ul>
+    <li class="title row">
+      <div class="col-10">
+        <strong>{{ paciente.nome }}</strong>
+      </div>
+      <div class="col-2">
+        <i class="fa-solid fa-sort-down" (click)="onChangeExtend()"></i>
+      </div>
+    </li>
+    <li class="sub">
+      {{ paciente.telefone }}
+    </li>
+    <li *ngIf="isExtend">
+    <div class="sub">
+      {{ paciente.email}}
+    </div>
+    <div class="sub">
+      {{ paciente.cpf }}
+    </div>
+    <div class="sub">
+      {{ paciente.endereco.logradouro +
+      (paciente.endereco.numero ? ', ' + paciente.endereco.numero : '') + ' - ' +
+      paciente.endereco.cidade + '/' +
+      paciente.endereco.uf + ' CEP: ' + paciente.endereco.cep }}
     </div>
       <button type="button" class="btn btn-outline-primary mr-3">Editar</button>
       <button type="button" class="btn btn-outline-primary">Desativar perfil</button>

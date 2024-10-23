@@ -5,6 +5,7 @@ import { ElipsisComponent } from './elipsis/elipsis.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SeparadorComponent } from './separador/separador.component';
 import { DetailsComponent } from './details/details.component';
+import { CampoErroComponent } from './campo-erro/campo-erro.component';
 
 
 
@@ -13,7 +14,8 @@ import { DetailsComponent } from './details/details.component';
     LoadingComponent,
     ElipsisComponent,
     SeparadorComponent,
-    DetailsComponent
+    DetailsComponent,
+    CampoErroComponent
   ],
   imports: [
     CommonModule,
@@ -23,8 +25,8 @@ import { DetailsComponent } from './details/details.component';
     LoadingComponent,
     ElipsisComponent,
     SeparadorComponent,
-    DetailsComponent
-
+    DetailsComponent,
+    CampoErroComponent
 
   ]
 })

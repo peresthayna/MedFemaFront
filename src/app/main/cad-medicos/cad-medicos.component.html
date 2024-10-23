@@ -1,0 +1,109 @@
+<div class="container-fluid">
+  <nav>
+    <div class="header">
+      <h1>
+        <i class="fa-solid fa-angle-left" (click)="onGoBack()"></i>
+        Novo cadastro médico
+      </h1>
+    </div>
+  </nav>
+  <form [formGroup]="medicoForm" class="my-4 container"  (ngSubmit)="salvarMedico()">
+    <h2>Profissional</h2>
+    <input type="text" class="form-control" id="nome" placeholder="Nome completo" #nome formControlName="nome"/>
+    <app-campo-erro [mostrarErro]="validarCampo('nome')"></app-campo-erro>
+    <div class="row mt-2">
+      <div class="col-8">
+        <div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ especialidade }}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Cardiologista')">Cardiologista</a></li>
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Cirurgião')">Cirurgião</a></li>
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Clínico Geral')">Clínico Geral</a></li>
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Dermatologista')">Dermatologista</a></li>
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Gastroenterologista')">Gastroenterologista</a></li>
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Ginecologista')">Ginecologista</a></li>
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Neurologista')">Neurologista</a></li>
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Oftalmologista')">Oftalmologista</a></li>
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Ortopedista')">Ortopedista</a></li>
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Pediatra')">Pediatra</a></li>
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Pneumologista')">Pneumologista</a></li>
+            <li><a class="dropdown-item" (click)="chooseEspecialidade('Psiquiatra')">Psiquiatra</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-4">
+        <input type="text" class="form-control" id="crm" placeholder="CRM" [disabled]="isUpdate" #crm formControlName="crm"/>
+        <app-campo-erro [mostrarErro]="validarCampo('crm')"></app-campo-erro>
+      </div>
+    </div>
+    <h2 class="mt-4">Contato</h2>
+    <div class="mb-2">
+      <input type="email" class="form-control" id="email" placeholder="E-mail" [disabled]="isUpdate" #email formControlName="email"/>
+      <app-campo-erro [mostrarErro]="validarCampo('email')"></app-campo-erro>
+    </div>
+    <input type="text mt-2" class="form-control" id="telefone" placeholder="Telefone celular" #telefone formControlName="telefone"/>
+    <app-campo-erro [mostrarErro]="validarCampo('telefone')"></app-campo-erro>
+    <h2 class="mt-4">Endereço profissional</h2>
+    <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" #logradouro formControlName="logradouro"/>
+    <app-campo-erro [mostrarErro]="validarCampo('logradouro')"></app-campo-erro>
+    <div class="row my-2">
+      <div class="col-6">
+        <input type="text" class="form-control" id="numero" placeholder="Número">
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control" id="complemento" placeholder="Complemento">
+      </div>
+    </div>
+    <input type="text" class="form-control" id="cidade" placeholder="Cidade" #cidade formControlName="cidade"/>
+    <app-campo-erro [mostrarErro]="validarCampo('cidade')"></app-campo-erro>
+    <div class="row mt-2 mb-1">
+      <div class="col-6">
+        <div class="dropdown ufs">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ uf }}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="chooseUF('AC')">AC</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('AL')">AL</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('AP')">AP</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('AM')">AM</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('BA')">BA</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('CE')">CE</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('DF')">DF</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('ES')">ES</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('GO')">GO</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('MA')">MA</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('MT')">MT</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('MS')">MS</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('MG')">MG</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('PA')">PA</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('PB')">PB</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('PR')">PR</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('PE')">PE</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('PI')">PI</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('RJ')">RJ</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('RN')">RN</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('RS')">RS</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('RO')">RO</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('RR')">RR</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('SC')">SC</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('SP')">SP</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('SE')">SE</a></li>
+            <li><a class="dropdown-item" (click)="chooseUF('TO')">TO</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control" id="cep" placeholder="CEP" #cep formControlName="cep"/>
+        <app-campo-erro [mostrarErro]="validarCampo('cep')"></app-campo-erro>
+      </div>
+    </div>
+    <div class="row mt-1 p-2 text-center footer">
+      <a *ngIf="isUpdate">Desativar este perfil</a>
+      <button class="btn btn-cadastrar mt-2" [disabled]="medicoForm.invalid" type="submit">Concluir cadastro</button>
+      <button class="btn btn-outline-secondary mt-1" (click)="cleanFormGroup()">Cancelar</button>
+    </div>
+  </form>
+</div>

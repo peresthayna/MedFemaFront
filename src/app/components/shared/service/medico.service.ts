@@ -17,7 +17,7 @@ export class MedicoService {
     return this.http.get<MedicoConsulta[]>(this.URL);
   }
 
-  public getMedicoConsultaById(id: number): Observable<MedicoConsulta> {
+  public getMedicoById(id: number): Observable<MedicoConsulta> {
     return this.http.get<MedicoConsulta>(this.URL+'/'+id);
   }
 

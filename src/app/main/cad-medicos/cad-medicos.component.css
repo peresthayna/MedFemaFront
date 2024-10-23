@@ -1,0 +1,53 @@
+.container-fluid {
+  overflow: hidden;
+  padding: 0;
+  min-height: 100vh;
+}
+
+nav {
+  background-color: #0B3B60;
+  height: 8vh;
+}
+
+nav i {
+  padding: 1.5vh 3vw 0 3vw;
+  font-size: 2rem;
+}
+
+nav i:hover {
+  cursor: pointer;
+}
+
+nav h1 {
+  color: #FFFFFF;
+}
+
+input, .dropdown-toggle, .dropdown-toggle:focus {
+  border-radius: 5px;
+  border: 1px solid #CED4DA;
+  background-color: #FFFFFF;
+  color: #6C757D;
+  font-style: normal;
+  font-weight: 400;
+  height: 40px;
+  width: 100%;
+}
+
+.dropdown-menu {
+  max-height: 9.5rem;
+  overflow-y: scroll;
+}
+
+.btn-cadastrar {
+  color: #FFFFFF;
+  background-color: #0B3B60;
+}
+
+.footer a {
+  text-decoration: underline;
+  color: #0B3B60;
+}
+
+.ng-invalid.ng-touched:not(form) {
+  border: 1px solid red;
+}

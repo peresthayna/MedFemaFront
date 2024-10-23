@@ -1,31 +1,36 @@
 <app-elipsis *ngIf="isElipsis"></app-elipsis>
-<nav class="row">
-  <div class="col-10 header">
-    <h1>
-      <i class="fa-solid fa-angle-left" (click)="onGoBack()"></i>
-      Médicos
-    </h1>
-  </div>
-  <div class="col-2 header text-end">
-    <h1>
-      <i class="fa-solid fa-ellipsis-vertical" (click)="onChangeElipsis()"></i>
-    </h1>
-  </div>
-</nav>
-<div class="container">
-  <div class="search">
-    <input type="search" placeholder="Pesquisar" [(ngModel)]="busca" (ngModelChange)="onSearchChange()">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </div>
-  <div *ngFor="let lista of medicos | keyvalue">
-    <app-separador>
-      <div class="letter">
+<div class="container-fluid">
+  <nav class="row">
+    <div class="col-10 header">
+      <h1>
+        <i class="fa-solid fa-angle-left" (click)="onGoBack()"></i>
+        Médicos
+      </h1>
+    </div>
+    <div class="col-2 header text-end">
+      <h1>
+        <i class="fa-solid fa-ellipsis-vertical" (click)="onChangeElipsis()"></i>
+      </h1>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="search">
+      <input type="search" placeholder="Pesquisar" [(ngModel)]="busca" (ngModelChange)="onSearchChange()">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <div *ngFor="let lista of medicos | keyvalue">
+      <div class="letter mt-2">
         {{ lista['key'] }}
         <img src="assets/v.png">
       </div>
       <div *ngFor="let medico of lista['value']">
-        <app-details [medico]="medico"></app-details>
-      </div>
-    </app-separador>
+        <app-separador>
+          <app-details [medico]="medico"></app-details>
+        </app-separador>
+        </div>
+    </div>
+  </div>
+  <div class="text-center cadastro">
+    <button type="button" class="btn btn-primary" (click)="navigate('add-medicos/0')">Cadastrar novo perfil</button>
   </div>
 </div>

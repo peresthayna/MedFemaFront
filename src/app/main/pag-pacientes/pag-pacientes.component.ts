@@ -3,6 +3,7 @@ import { debounceTime, Subject, switchMap } from 'rxjs';
 import { PacienteConsulta } from '../../components/shared/model/PacienteConsulta';
 import { PacienteService } from '../../components/shared/service/paciente.service';
 import { SetMapService } from '../../components/shared/service/set-map.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pag-pacientes',
@@ -18,11 +19,13 @@ export class PagPacientesComponent implements OnInit {
 
   constructor(
     private pacienteService: PacienteService,
-    private setMapService: SetMapService
+    private setMapService: SetMapService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getPacientes();
+    this.setupSearch();
   }
 
   public onChangeElipsis(): void {
@@ -33,17 +36,11 @@ export class PagPacientesComponent implements OnInit {
     history.back()
   }
 
-  public getPacientes(): void {
-    this.pacienteService.getPacientes().subscribe((pacientes) => {
-      this.pacientes = this.setMapService.setMap(pacientes);
-    });
-  }
-
   public onSearchChange(): void {
     if (this.busca == '') {
       this.getPacientes();
     } else {
-      this.searchSubject.next(this.busca);
+        this.searchSubject.next(this.busca);
     }
   }
 
@@ -57,4 +54,15 @@ export class PagPacientesComponent implements OnInit {
         this.pacientes = this.setMapService.setMap(pacientes);
       });
   }
+
+  public navigate(path: string): void {
+    this.router.navigate([path]);
+  }
+
+  public getPacientes(): void {
+    this.pacienteService.getPacientes().subscribe((pacientes) => {
+      this.pacientes = this.setMapService.setMap(pacientes);
+    });
+  }
+
 }
