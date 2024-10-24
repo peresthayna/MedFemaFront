@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="container text-center" *ngIf="!isError">
+    <img src="assets/user.png">
+    <h3 class="my-4">Deseja desativar este perfil?</h3>
+    <div class="perfil">
+      <div *ngIf="isMedico">
+        <span class="nome">{{ medico.nome }}</span><br>
+        <span>{{ medico.especialidade + ' | CRM ' + medico.crm }}</span>
+      </div>
+      <div *ngIf="!isMedico">
+        <span class="nome">{{ paciente.nome }}</span><br>
+        <span>{{ paciente.telefone }}</span><br>
+        <span>{{ paciente.cpf }}</span>
+      </div>
+    </div>
+    <p class="my-4">Ao desativar este perfil, suas informações ficarão desabilitadas para pesquisas e futuros agendamentos.</p>
+    <p>Certifique-se que não há consultas agendadas, caso tenha, a desativação não poderá ser concluída.</p>
+    <div class="buttons">
+      <button class="btn btn-desativar" (click)="desativarPerfil()">Desativar este perfil</button><br>
+      <button class="btn btn-cancelar mt-3" (click)="navigate()">Cancelar</button>
+    </div>
+  </div>
+  <div class="container text-center" *ngIf="isError">
+    <img src="assets/user.png">
+    <h3 class="my-4">Não foi possível desativar este perfil</h3>
+    <p class="py-4">Certifique-se que não há consultas agendadas, caso tenha, a desativação não poderá ser concluída.</p>
+    <button class="btn btn-desativar my-4" (click)="navigate()">Entendi</button><br>
+  </div>
+</div>

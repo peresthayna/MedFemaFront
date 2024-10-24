@@ -52,8 +52,8 @@
         medico.endereco.cidade + '/' +
         medico.endereco.uf + ' CEP: ' + medico.endereco.cep }}
     </div>
-      <button type="button" class="btn btn-outline-primary mr-3">Editar</button>
-      <button type="button" class="btn btn-outline-primary">Desativar perfil</button>
+      <button type="button" class="btn btn-outline-primary mr-3" (click)="navigate('add-medico/'+medico.id)">Editar</button>
+      <button type="button" class="btn btn-outline-primary" (click)="navigate('desativar-perfil/medico/'+medico.id)">Desativar perfil</button>
     </li>
   </ul>
 </section>
@@ -84,7 +84,7 @@
       paciente.endereco.uf + ' CEP: ' + paciente.endereco.cep }}
     </div>
       <button type="button" class="btn btn-outline-primary mr-3">Editar</button>
-      <button type="button" class="btn btn-outline-primary">Desativar perfil</button>
+      <button type="button" class="btn btn-outline-primary" (click)="navigate('desativar-perfil/paciente/'+paciente.id)">Desativar perfil</button>
     </li>
   </ul>
 </section>

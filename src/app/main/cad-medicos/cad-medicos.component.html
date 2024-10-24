@@ -34,13 +34,13 @@
         </div>
       </div>
       <div class="col-4">
-        <input type="text" class="form-control" id="crm" placeholder="CRM" [disabled]="isUpdate" #crm formControlName="crm"/>
+        <input type="text" class="form-control" id="crm" placeholder="CRM" #crm formControlName="crm"/>
         <app-campo-erro [mostrarErro]="validarCampo('crm')"></app-campo-erro>
       </div>
     </div>
     <h2 class="mt-4">Contato</h2>
     <div class="mb-2">
-      <input type="email" class="form-control" id="email" placeholder="E-mail" [disabled]="isUpdate" #email formControlName="email"/>
+      <input type="email" class="form-control" id="email" placeholder="E-mail" #email formControlName="email"/>
       <app-campo-erro [mostrarErro]="validarCampo('email')"></app-campo-erro>
     </div>
     <input type="text mt-2" class="form-control" id="telefone" placeholder="Telefone celular" #telefone formControlName="telefone"/>
@@ -101,7 +101,7 @@
       </div>
     </div>
     <div class="row mt-1 p-2 text-center footer">
-      <a *ngIf="isUpdate">Desativar este perfil</a>
+      <a *ngIf="isUpdate" (click)="navigate('desativar-perfil/medico/'+idParam)">Desativar este perfil</a>
       <button class="btn btn-cadastrar mt-2" [disabled]="medicoForm.invalid" type="submit">Concluir cadastro</button>
       <button class="btn btn-outline-secondary mt-1" (click)="cleanFormGroup()">Cancelar</button>
     </div>

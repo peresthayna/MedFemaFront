@@ -17,7 +17,7 @@ export class PacienteService {
     return this.http.get<PacienteConsulta[]>(this.URL);
   }
 
-  public getPacienteConsultaById(id: number): Observable<PacienteConsulta> {
+  public getPacienteById(id: number): Observable<PacienteConsulta> {
     return this.http.get<PacienteConsulta>(this.URL+'/'+id);
   }
 

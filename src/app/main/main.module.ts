@@ -10,6 +10,7 @@ import { PagConsultasComponent } from './pag-consultas/pag-consultas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadMedicosComponent } from './cad-medicos/cad-medicos.component';
 import { RouterModule } from '@angular/router';
+import { CadPacientesComponent } from './cad-pacientes/cad-pacientes.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     PagMedicosComponent,
     PagPacientesComponent,
     PagConsultasComponent,
-    CadMedicosComponent
+    CadMedicosComponent,
+    CadPacientesComponent
   ],
   imports: [
     CommonModule,

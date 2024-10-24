@@ -19,7 +19,6 @@ export class CadMedicosComponent {
   public isUpdate: boolean = false;
   public especialidade: string = 'Especialidade';
   public uf: string = 'UF';
-  public isDisabled: boolean = false;
 
   constructor(
     private router: Router,
@@ -32,11 +31,12 @@ export class CadMedicosComponent {
       if(params['id'] != 0) {
         this.idParam = params['id'];
         this.isUpdate = true;
-        this.isDisabled = false;
         this.medicoService.getMedicoById(this.idParam).subscribe(medico => {
           this.medicoForm!.get('nome')?.setValue(medico.nome);
           this.medicoForm!.get('crm')?.setValue(medico.crm);
+          this.medicoForm!.get('crm')!.disable();
           this.medicoForm!.get('email')?.setValue(medico.email);
+          this.medicoForm!.get('email')!.disable();
           this.medicoForm!.get('telefone')?.setValue(medico.telefone);
           this.medicoForm!.get('logradouro')?.setValue(medico.endereco.logradouro);
           this.medicoForm!.get('numero')?.setValue(medico.endereco.numero);
@@ -46,8 +46,6 @@ export class CadMedicosComponent {
           this.uf = medico.endereco.uf;
           this.especialidade = medico.especialidade;
         })
-      } else {
-        this.isDisabled = true;
       }
     })
     this.iniciarFormulario();
@@ -118,7 +116,7 @@ export class CadMedicosComponent {
 
   public cleanFormGroup(): void {
     this.medicoForm.reset();
-    this.navigate('');
+    this.navigate('medicos');
   }
 
   public validarCampo(campo: string): boolean {

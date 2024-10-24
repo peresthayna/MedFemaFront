@@ -1,7 +1,7 @@
 .container-fluid {
   overflow: hidden;
   padding: 0;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 nav {

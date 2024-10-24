@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SeparadorComponent } from './separador/separador.component';
 import { DetailsComponent } from './details/details.component';
 import { CampoErroComponent } from './campo-erro/campo-erro.component';
+import { DesativarPerfilComponent } from './desativar-perfil/desativar-perfil.component';
 
 
 
@@ -15,7 +16,8 @@ import { CampoErroComponent } from './campo-erro/campo-erro.component';
     ElipsisComponent,
     SeparadorComponent,
     DetailsComponent,
-    CampoErroComponent
+    CampoErroComponent,
+    DesativarPerfilComponent
   ],
   imports: [
     CommonModule,

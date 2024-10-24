@@ -1,0 +1,42 @@
+img {
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+h3 {
+  color: #0B3B60;
+}
+
+.perfil {
+  margin-left: 20px;
+  padding: 10px;
+  border-left: 10px solid #85C4FF;
+  text-align: left;
+}
+
+.perfil .nome {
+  font-weight: 500;
+}
+
+.buttons {
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.container {
+  margin-top: 4rem;
+}
+
+.btn-desativar {
+  width: 100%;
+  color: #FFFFFF;
+  background-color: #0B3B60;
+}
+
+.btn-cancelar {
+  width: 100%;
+  color: #0B3B60;
+  background-color: #FFFFFF;
+  border: 1px solid #0B3B60;
+}
