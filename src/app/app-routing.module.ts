@@ -6,6 +6,9 @@ import { PagPacientesComponent } from './main/pag-pacientes/pag-pacientes.compon
 import { PagConsultasComponent } from './main/pag-consultas/pag-consultas.component';
 import { CadMedicosComponent } from './main/cad-medicos/cad-medicos.component';
 import { DesativarPerfilComponent } from './components/desativar-perfil/desativar-perfil.component';
+import { CadPacientesComponent } from './main/cad-pacientes/cad-pacientes.component';
+import { CadConsultaComponent } from './main/cad-consulta/cad-consulta.component';
+import { CancelarConsultaComponent } from './components/cancelar-consulta/cancelar-consulta.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,10 +16,11 @@ const routes: Routes = [
   { path: 'pacientes', component: PagPacientesComponent },
   { path: 'consultas', component: PagConsultasComponent },
   { path: 'add-medico/:id', component: CadMedicosComponent },
-  { path: 'add-paciente/:id', component: CadMedicosComponent },
-  { path: 'add-consulta/:id', component: CadMedicosComponent },
+  { path: 'add-paciente/:id', component: CadPacientesComponent },
+  { path: 'add-consulta/:id', component: CadConsultaComponent },
   { path: 'desativar-perfil/medico/:id', component: DesativarPerfilComponent },
   { path: 'desativar-perfil/paciente/:id', component: DesativarPerfilComponent },
+  { path: 'cancelar-consulta/:id', component: CancelarConsultaComponent },
 ];
 
 @NgModule({

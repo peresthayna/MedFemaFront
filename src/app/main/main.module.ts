@@ -11,6 +11,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadMedicosComponent } from './cad-medicos/cad-medicos.component';
 import { RouterModule } from '@angular/router';
 import { CadPacientesComponent } from './cad-pacientes/cad-pacientes.component';
+import { CadConsultaComponent } from './cad-consulta/cad-consulta.component';
+import { CalendarModule } from 'primeng/calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,8 @@ import { CadPacientesComponent } from './cad-pacientes/cad-pacientes.component';
     PagPacientesComponent,
     PagConsultasComponent,
     CadMedicosComponent,
-    CadPacientesComponent
+    CadPacientesComponent,
+    CadConsultaComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +36,13 @@ import { CadPacientesComponent } from './cad-pacientes/cad-pacientes.component';
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    CalendarModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class MainModule { }

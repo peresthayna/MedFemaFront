@@ -3,6 +3,7 @@ import { ConsultaService } from '../../components/shared/service/consulta.servic
 import { ConsultaConsulta } from '../../components/shared/model/ConsultaConsulta';
 import { debounceTime, Subject, switchMap } from 'rxjs';
 import { SetMapService } from '../../components/shared/service/set-map.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pag-consultas',
@@ -19,6 +20,7 @@ export class PagConsultasComponent implements OnInit {
   constructor(
     private consultaService: ConsultaService,
     private setMapService: SetMapService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -56,5 +58,9 @@ export class PagConsultasComponent implements OnInit {
       .subscribe((consultas) => {
         this.consultas = this.setMapService.setConsultasMap(consultas);
       });
+  }
+
+  public navigate(path: string): void {
+    this.router.navigate([path]);
   }
 }

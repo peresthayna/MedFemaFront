@@ -7,6 +7,7 @@ import { SeparadorComponent } from './separador/separador.component';
 import { DetailsComponent } from './details/details.component';
 import { CampoErroComponent } from './campo-erro/campo-erro.component';
 import { DesativarPerfilComponent } from './desativar-perfil/desativar-perfil.component';
+import { CancelarConsultaComponent } from './cancelar-consulta/cancelar-consulta.component';
 
 
 
@@ -17,7 +18,8 @@ import { DesativarPerfilComponent } from './desativar-perfil/desativar-perfil.co
     SeparadorComponent,
     DetailsComponent,
     CampoErroComponent,
-    DesativarPerfilComponent
+    DesativarPerfilComponent,
+    CancelarConsultaComponent
   ],
   imports: [
     CommonModule,

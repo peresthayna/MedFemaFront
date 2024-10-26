@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="container text-center">
+    <h3 class="my-4">Deseja cancelar esta consulta?</h3>
+    <div class="perfil">
+        <span class="nome">{{ consulta.dataHora.replace('T', ' ') }}</span><br>
+        <span class="sub">{{ consulta.medico.nome }}</span><br>
+        <span class="subsub">{{ consulta.medico.especialidade + ' | CRM ' + consulta.medico.crm }}</span><br>
+        <span class="sub">{{ consulta.paciente.nome }}</span><br>
+        <span class="subsub">Paciente</span>
+    </div>
+    <p class="mt-4">Selecione abaixo o motivo do cancelamento:</p>
+    <div class="dropdown">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ motivoCancelamento }}
+      </button>
+      <ul class="dropdown-menu">
+        <li><p class="dropdown-item" (click)="selecionarMotivo('Paciente desistiu')">Paciente desistiu</p></li>
+        <li><p class="dropdown-item" (click)="selecionarMotivo('Médico cancelou')">Médico cancelou</p></li>
+        <li><p class="dropdown-item" (click)="selecionarMotivo('Outros')">Outros</p></li>
+      </ul>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-desativar" (click)="cancelar()">Confirmar cancelamento</button><br>
+      <button class="btn btn-cancelar mt-3" (click)="navigate('consultas')">Cancelar</button>
+    </div>
+  </div>
+</div>

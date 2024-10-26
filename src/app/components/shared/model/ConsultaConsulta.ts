@@ -9,5 +9,4 @@ export class ConsultaConsulta {
   fimConsulta: string;
   motivoCancelamento: string;
   ativo: boolean;
-  dataFormatada: string;
 }

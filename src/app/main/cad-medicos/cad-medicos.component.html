@@ -50,10 +50,10 @@
     <app-campo-erro [mostrarErro]="validarCampo('logradouro')"></app-campo-erro>
     <div class="row my-2">
       <div class="col-6">
-        <input type="text" class="form-control" id="numero" placeholder="Número">
+        <input type="text" class="form-control" id="numero" placeholder="Número" #numero formControlName="numero">
       </div>
       <div class="col-6">
-        <input type="text" class="form-control" id="complemento" placeholder="Complemento">
+        <input type="text" class="form-control" id="complemento" placeholder="Complemento" #complemento formControlName="complemento">
       </div>
     </div>
     <input type="text" class="form-control" id="cidade" placeholder="Cidade" #cidade formControlName="cidade"/>

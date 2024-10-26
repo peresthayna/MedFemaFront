@@ -4,7 +4,7 @@ import { PacienteConsulta } from "./PacienteConsulta";
 export class ConsultaCadastro {
   paciente: PacienteConsulta;
   medico: MedicoConsulta;
-  dataHora: Date;
+  dataHora: string;
   fimConsulta: Date;
   ativo: boolean;
 }

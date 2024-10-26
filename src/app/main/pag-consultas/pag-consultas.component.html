@@ -1,31 +1,37 @@
 <app-elipsis *ngIf="isElipsis"></app-elipsis>
-<nav class="row">
-  <div class="col-10 header">
-    <h1>
-      <i class="fa-solid fa-angle-left" (click)="onGoBack()"></i>
-      Consultas
-    </h1>
-  </div>
-  <div class="col-2 header text-end">
-    <h1>
-      <i class="fa-solid fa-ellipsis-vertical" (click)="onChangeElipsis()"></i>
-    </h1>
-  </div>
-</nav>
-<div class="container">
-  <div class="search">
-    <input type="search" placeholder="Pesquisar" [(ngModel)]="busca" (ngModelChange)="onSearchChange()">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </div>
-  <div *ngFor="let lista of consultas | keyvalue">
-    <app-separador>
+<div class="container-fluid">
+
+  <nav class="row">
+    <div class="col-10 header">
+      <h1>
+        <i class="fa-solid fa-angle-left" (click)="onGoBack()"></i>
+        Consultas
+      </h1>
+    </div>
+    <div class="col-2 header text-end">
+      <h1>
+        <i class="fa-solid fa-ellipsis-vertical" (click)="onChangeElipsis()"></i>
+      </h1>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="search">
+      <input type="search" placeholder="Pesquisar" [(ngModel)]="busca" (ngModelChange)="onSearchChange()">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <div *ngFor="let lista of consultas | keyvalue">
       <div class="date">
         {{ lista['key'] | date: 'dd/MM/yyyy'}}
         <img src="assets/v.png">
       </div>
       <div *ngFor="let consulta of lista['value']">
-        <app-details [consulta]="consulta"></app-details>
+        <app-separador>
+          <app-details [consulta]="consulta"></app-details>
+        </app-separador>
       </div>
-    </app-separador>
+    </div>
+  </div>
+  <div class="text-center cadastro">
+    <button type="button" class="btn btn-primary" (click)="navigate('add-consulta/0')">Agendar nova consulta</button>
   </div>
 </div>

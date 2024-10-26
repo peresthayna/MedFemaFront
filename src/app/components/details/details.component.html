@@ -21,8 +21,8 @@
       Paciente
     </li>
     <li *ngIf="isExtend">
-      <button type="button" class="btn btn-outline-primary mr-3">Editar</button>
-      <button type="button" class="btn btn-outline-primary">Cancelar consulta</button>
+      <button type="button" class="btn btn-outline-primary mr-3" (click)="navigate('add-consulta/'+consulta.id)">Editar</button>
+      <button type="button" class="btn btn-outline-primary" (click)="navigate('cancelar-consulta/'+consulta.id)">Cancelar consulta</button>
     </li>
   </ul>
 </section>
@@ -83,7 +83,7 @@
       paciente.endereco.cidade + '/' +
       paciente.endereco.uf + ' CEP: ' + paciente.endereco.cep }}
     </div>
-      <button type="button" class="btn btn-outline-primary mr-3">Editar</button>
+      <button type="button" class="btn btn-outline-primary mr-3" (click)="navigate('add-paciente/'+paciente.id)">Editar</button>
       <button type="button" class="btn btn-outline-primary" (click)="navigate('desativar-perfil/paciente/'+paciente.id)">Desativar perfil</button>
     </li>
   </ul>

@@ -18,7 +18,11 @@ export class ConsultaService {
   }
 
   public getConsultaById(id: number): Observable<ConsultaConsulta> {
-    return this.http.get<ConsultaConsulta>(this.URL+'/'+id);
+    return this.http.get<ConsultaConsulta>(this.URL+'/id/'+id);
+  }
+
+  public getConsultaByNome(nome: string): Observable<ConsultaConsulta> {
+    return this.http.get<ConsultaConsulta>(this.URL+'/nome/'+nome);
   }
 
   public getConsultasBySearch(search: string): Observable<ConsultaConsulta[]> {
@@ -33,7 +37,7 @@ export class ConsultaService {
     return this.http.put<ConsultaConsulta>(this.URL+'/'+id, consulta);
   }
 
-  public deletarConsulta(id: number): Observable<void> {
-    return this.http.delete<void>(this.URL+'/deletar/'+id);
+  public deletarConsulta(id: number, motivoCancelamento: string): Observable<void> {
+    return this.http.delete<void>(this.URL+'/deletar/'+id+'/'+motivoCancelamento);
   }
 }

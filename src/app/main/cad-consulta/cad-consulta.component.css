@@ -1,0 +1,99 @@
+@import "material-icons/iconfont/material-icons.css";
+
+.container-fluid {
+  overflow: hidden;
+  padding: 0;
+  height: 100vh;
+}
+
+h1 {
+  font-size: calc(1.375rem + 1.5vw);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: calc(1.325rem + 0.9vw);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+nav {
+  background-color: #0b3b60;
+  height: 8vh;
+}
+
+nav i {
+  padding: 1.5vh 3vw 0 3vw;
+  font-size: 2rem;
+}
+
+nav i:hover {
+  cursor: pointer;
+}
+
+nav h1 {
+  color: #ffffff;
+}
+
+.dropdown-toggle,
+.dropdown-toggle:focus {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  background-color: #ffffff;
+  color: #6c757d;
+  font-style: normal;
+  font-weight: 400;
+  height: 40px;
+  width: 100%;
+}
+
+.dropdown-menu {
+  max-height: 9.5rem;
+  overflow-y: scroll;
+}
+
+.btn-cadastrar {
+  color: #ffffff;
+  background-color: #0b3b60;
+}
+
+.footer a {
+  text-decoration: underline;
+  color: #0b3b60;
+}
+
+.ng-invalid.ng-touched:not(form) {
+  border: 1px solid red;
+}
+
+.container {
+  height: 70%;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.p-element {
+  width: 100%;
+}
+
+.date .input-field {
+  width: 100%;
+  border: 1px solid #ced4da;
+}
+
+.date .input-field input {
+  width: 90%;
+  border: none;
+}
+
+.datap {
+  width: 100%;
+}

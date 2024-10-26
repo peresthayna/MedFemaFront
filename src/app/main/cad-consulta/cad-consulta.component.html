@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <nav>
+    <div class="header">
+      <h1>
+        <i class="fa-solid fa-angle-left" (click)="onGoBack()"></i>
+        Novo agendamento
+      </h1>
+    </div>
+  </nav>
+  <div class="container my-4">
+    <h2>Envolvidos</h2>
+    <div class="dropdown mt-2">
+      <button
+        class="btn btn-outline-primary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        {{ pacienteSelecionado }}
+      </button>
+      <ul class="dropdown-menu">
+        <li *ngFor="let paciente of pacientes">
+          <p class="dropdown-item" (click)="choosePaciente(paciente)">
+            {{ paciente.nome }}
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="dropdown mt-2">
+      <button
+        class="btn btn-outline-primary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        {{ medicoSelecionado }}
+      </button>
+      <ul class="dropdown-menu">
+        <li *ngFor="let medico of medicos">
+          <p class="dropdown-item" (click)="chooseMedico(medico)">
+            {{ medico.nome }}
+          </p>
+        </li>
+      </ul>
+    </div>
+    <h2 class="mt-4">Data e horário</h2>
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field class="datap">
+          <mat-label>Data da consulta</mat-label>
+          <input matInput [min]="today" [matDatepicker]="picker"/>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button
+        class="btn btn-outline-primary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        {{ horaSelecionada }}
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item" (click)="chooseHora('08:00:00')">08:00</a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="chooseHora('09:00:00')">09:00</a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="chooseHora('10:00:00')">10:00</a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="chooseHora('11:00:00')">11:00</a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="chooseHora('12:00:00')">12:00</a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="chooseHora('13:00:00')">13:00</a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="chooseHora('14:00:00')">14:00</a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="chooseHora('15:00:00')">15:00</a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="chooseHora('16:00:00')">16:00</a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="chooseHora('17:00:00')">17:00</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row mt-1 px-4 text-center footer">
+    <button class="btn btn-cadastrar mt-2" (click)="agendar()">Agendar consulta</button>
+    <button class="btn btn-outline-secondary mt-1" (click)="cleanFormGroup()">
+      Cancelar
+    </button>
+  </div>
+</div>
