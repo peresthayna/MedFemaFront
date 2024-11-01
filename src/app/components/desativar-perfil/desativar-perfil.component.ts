@@ -48,12 +48,12 @@ export class DesativarPerfilComponent implements OnInit {
   public desativarPerfil(): void {
     if(this.isMedico) {
       this.medicoService.deletarMedico(this.medico.id).subscribe(
-        () => alert('sucesso'),
+        () => this.navigate(),
         (httpError: HttpErrorResponse) => this.isError = true
       );
     } else {
       this.pacienteService.deletarPaciente(this.paciente.id).subscribe(
-        () => alert('sucesso'),
+        () => this.navigate(),
         (httpError: HttpErrorResponse) => this.isError = true
       );
     }

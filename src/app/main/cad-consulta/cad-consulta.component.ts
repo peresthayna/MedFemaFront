@@ -42,12 +42,15 @@ export class CadConsultaComponent {
     this.route.params.subscribe(params => {
       if(params['id'] != 0) {
         this.idParam = params['id'];
+        console.log(params)
         this.isUpdate = true;
         this.consultaService.getConsultaById(this.idParam).subscribe(consulta => {
           this.medicoSelecionado = consulta.medico.nome;
+          this.idMedicoSelecionado = consulta.medico;
           this.pacienteSelecionado = consulta.paciente.nome;
-          this.dataSelecionada = new Date(consulta.dataHora.split(' ')[0]);
-          this.horaSelecionada = consulta.dataHora.split(' ')[1];
+          this.idPacienteSelecionado = consulta.paciente;
+          this.dataSelecionada = new Date(consulta.dataHora.split('T')[0]);
+          this.horaSelecionada = consulta.dataHora.split('T')[1];
         })
       }
     })
@@ -61,7 +64,9 @@ export class CadConsultaComponent {
       consultaConsulta.paciente = this.idPacienteSelecionado;
       consultaConsulta.medico = new MedicoConsulta();
       consultaConsulta.medico = this.idMedicoSelecionado;
-      consultaConsulta.dataHora = this.dataSelecionada + ' ' + this.horaSelecionada;
+      let formattedDateTime = this.dataSelecionada.toISOString().slice(0, 10);
+      formattedDateTime += ' ' + this.horaSelecionada;
+      consultaConsulta.dataHora = formattedDateTime;
 
       this.consultaService.atualizarConsulta(this.idParam, consultaConsulta).subscribe((consulta) => {
         this.navigate('consultas');
@@ -73,6 +78,7 @@ export class CadConsultaComponent {
       consultaCadastro.paciente = this.idPacienteSelecionado;
       consultaCadastro.medico = new MedicoConsulta();
       consultaCadastro.medico = this.idMedicoSelecionado;
+      console.log(consultaCadastro)
       let formattedDateTime = this.dataSelecionada.toISOString().slice(0, 10);
       formattedDateTime += ' ' + this.horaSelecionada;
       consultaCadastro.dataHora = formattedDateTime;
@@ -104,10 +110,6 @@ export class CadConsultaComponent {
   public chooseMedico(medico: MedicoConsulta): void {
     this.medicoSelecionado = medico.nome;
     this.idMedicoSelecionado = medico;
-  }
-
-  public chooseData(data: string): void {
-    this.dataSelecionada = new Date(data);
   }
 
   public chooseHora(hora: string): void {

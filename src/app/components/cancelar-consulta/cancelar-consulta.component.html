@@ -2,7 +2,7 @@
   <div class="container text-center">
     <h3 class="my-4">Deseja cancelar esta consulta?</h3>
     <div class="perfil">
-        <span class="nome">{{ consulta.dataHora.replace('T', ' ') }}</span><br>
+        <span class="nome">{{ consulta.dataHora }}</span><br>
         <span class="sub">{{ consulta.medico.nome }}</span><br>
         <span class="subsub">{{ consulta.medico.especialidade + ' | CRM ' + consulta.medico.crm }}</span><br>
         <span class="sub">{{ consulta.paciente.nome }}</span><br>
